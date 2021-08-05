@@ -1,0 +1,93 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": " Backend completo de la red social minimalista. Creamos microservicios con usuarios, posts, follow e interacciones con NodeJS.",
+      "version": "1.0.0",
+      "title": "Red Social NodeJS",
+      "contact": {
+        "email": "johann.rvs@gmail.com"
+      }
+    },
+    "host": "localhost:3000",
+    "basePath": "/api",
+    "tags": [
+      {
+        "name": "user",
+        "description": "Operations about user",
+        "externalDocs": {
+          "description": "List users",
+          "url": "localhost:3000/api/user"
+        }
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+      "/user": {
+        "get": {
+          "tags": [
+            "user"
+          ],
+          "summary": "List users",
+          "description": "list all the users",
+          "operationId": "ListUsers",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "default": {
+              "description": "List users complete"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "user"
+          ],
+          "summary": "Create user",
+          "description": "Creación de nuevo usuario.",
+          "operationId": "createUser",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Created user object",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          ],
+          "responses": {
+            "default": {
+              "description": "successful operation"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "externalDocs": {
+      "description": "Find out more about Swagger",
+      "url": "http://swagger.io"
+    }
+  }
